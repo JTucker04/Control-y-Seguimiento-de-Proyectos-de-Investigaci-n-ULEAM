@@ -21,10 +21,12 @@ function loadSidebar(role) {
     case "investigador":
       menu = `
         <a href="investigador/mis_proyectos.html" class="nav-item">Mis Proyectos</a>
-        <a href="investigador/avances.html" class="nav-item">Registrar Avance</a>
+        <a href="investigador/subir_proyecto.html" class="nav-item">Subir Proyecto</a>
+        <a href="investigador/actualizar_proyecto.html" class="nav-item">Actualizar Proyecto</a>
         <a href="investigador/historial.html" class="nav-item">Historial</a>
       `;
       break;
+
 
     case "evaluador":
       menu = `
@@ -99,4 +101,5 @@ function initContentScripts(url) {
 }
 
 // Inicialización
+
 loadSidebar(userRole);
