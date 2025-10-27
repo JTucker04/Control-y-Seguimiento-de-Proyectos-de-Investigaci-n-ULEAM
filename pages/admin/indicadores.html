@@ -1,39 +1,21 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Indicadores - Admin</title>
-  <link rel="stylesheet" href="../../css/styles.css">
-</head>
-<body>
+<h1 class="page-title">Indicadores de Gestión</h1>
 
-    <!-- Contenido principal -->
-    <section class="main-content">
-      <h1 class="page-title">Indicadores de Gestión</h1>
+<div class="kpi-cards">
+  <div class="card kpi-card">
+    <p class="kpi-title">Proyectos activos</p>
+    <p class="kpi-value kpi-green">24</p>
+  </div>
+  <div class="card kpi-card">
+    <p class="kpi-title">Investigadores registrados</p>
+    <p class="kpi-value kpi-red">120</p>
+  </div>
+  <div class="card kpi-card">
+    <p class="kpi-title">Evaluaciones pendientes</p>
+    <p class="kpi-value kpi-orange">8</p>
+  </div>
+</div>
 
-      <section class="kpi-cards">
-        <div class="card kpi-card">
-          <p class="kpi-title">Proyectos activos</p>
-          <p class="kpi-value kpi-green">24</p>
-        </div>
-        <div class="card kpi-card">
-          <p class="kpi-title">Investigadores registrados</p>
-          <p class="kpi-value kpi-red">120</p>
-        </div>
-        <div class="card kpi-card">
-          <p class="kpi-title">Evaluaciones pendientes</p>
-          <p class="kpi-value kpi-orange">8</p>
-        </div>
-      </section>
-
-      <section class="card">
-        <h2 class="section-title">Gráfico de Avances</h2>
-        <div class="chart-placeholder">[Aquí irá un gráfico dinámico]</div>
-      </section>
-    </section>
-  </main>
-
-  <script src="../../js/dashboard.js"></script>
-</body>
-
-</html>
+<section class="card">
+  <h2 class="section-title">Gráfico de Avances</h2>
+  <canvas id="chartAvances" width="400" height="200"></canvas>
+</section>
