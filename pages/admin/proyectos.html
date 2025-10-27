@@ -1,68 +1,31 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Gestión de Proyectos - Admin</title>
-  <link rel="stylesheet" href="../../css/styles.css">
-</head>
-<body>
-  <!-- Encabezado institucional -->
-  <header class="site-header compact">
-    <div class="header-left">
-      <img src="../../img/uleam_logo.png" alt="Logotipo ULEAM" class="logo">
-    </div>
-    <div class="header-right">
-      <nav class="top-nav small">
-        <span>Español - Internacional</span>
-        <hr class="separator">
-        <a href="../login.html" class="link">Salir</a>
-      </nav>
-    </div>
-  </header>
+<h1 class="page-title">Gestión de Proyectos</h1>
 
-  <!-- Contenedor principal con sidebar + contenido -->
-  <main class="dashboard-container">
-    <!-- Sidebar dinámico -->
-    <nav class="sidebar-nav" id="sidebar">
-      <!-- Aquí se cargará el menú según el rol -->
-    </nav>
-
-    <!-- Contenido principal -->
-    <section class="main-content">
-      <h1 class="page-title">Gestión de Proyectos</h1>
-
-      <section class="card">
-        <h2 class="section-title">Proyectos activos</h2>
-        <div class="project-table-card">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Título</th>
-                <th>Investigador</th>
-                <th>Avance</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Modelo de Innovación Educativa</td>
-                <td>María López</td>
-                <td><span class="progress-bar progress-75"></span></td>
-                <td><span class="status status-running">En curso</span></td>
-                <td>
-                  <button class="btn btn-light">Ver</button>
-                  <button class="btn btn-dark">Cerrar</button>
-                </td>
-              </tr>
-              <!-- Más filas dinámicas -->
-            </tbody>
-          </table>
-        </div>
-      </section>
-    </section>
-  </main>
-
-  <script src="../../js/dashboard.js"></script>
-</body>
-</html>
+<section class="card">
+  <h2 class="section-title">Proyectos activos</h2>
+  <div class="project-table-card">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Investigador</th>
+          <th>Avance</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Modelo de Innovación Educativa</td>
+          <td>María López</td>
+          <td><span class="progress-bar progress-75"></span></td>
+          <td><span class="status status-running">En curso</span></td>
+          <td>
+            <button class="btn btn-light">Ver</button>
+            <button class="btn btn-dark">Cerrar</button>
+          </td>
+        </tr>
+        <!-- Más filas dinámicas -->
+      </tbody>
+    </table>
+  </div>
+</section>
