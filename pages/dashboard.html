@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Panel de Seguimiento</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <!-- Encabezado institucional -->
+  <header class="site-header compact">
+    <div class="header-left">
+      <img src="../img/uleam_logo.png" alt="Logotipo ULEAM" class="logo">
+    </div>
+    <div class="header-right">
+      <nav class="top-nav small">
+        <span>Español - Internacional</span>
+        <hr class="separator">
+        <a href="login.html" class="link">Salir</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenedor principal con sidebar + contenido -->
+  <main class="dashboard-container">
+    <!-- Sidebar -->
+    <nav class="sidebar-nav" id="sidebar"></nav>
+
+    <!-- Contenido dinámico -->
+    <section class="main-content" id="dashboard-content">
+      <h1 class="page-title">Bienvenido</h1>
+      <p>Selecciona una opción del menú lateral.</p>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Indicadores - Admin</title>
+  <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+  <!-- Encabezado institucional -->
+  <header class="site-header compact">
+    <div class="header-left">
+      <img src="../../img/uleam_logo.png" alt="Logotipo ULEAM" class="logo">
+    </div>
+    <div class="header-right">
+      <nav class="top-nav small">
+        <span>Español - Internacional</span>
+        <hr class="separator">
+        <a href="../login.html" class="link">Salir</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenedor principal con sidebar + contenido -->
+  <main class="dashboard-container">
+    <!-- Sidebar dinámico -->
+    <nav class="sidebar-nav" id="sidebar">
+      <!-- Aquí se cargará el menú según el rol -->
+    </nav>
+
+    <!-- Contenido principal -->
+    <section class="main-content">
+      <h1 class="page-title">Indicadores de Gestión</h1>
+
+      <section class="kpi-cards">
+        <div class="card kpi-card">
+          <p class="kpi-title">Proyectos activos</p>
+          <p class="kpi-value kpi-green">24</p>
+        </div>
+        <div class="card kpi-card">
+          <p class="kpi-title">Investigadores registrados</p>
+          <p class="kpi-value kpi-red">120</p>
+        </div>
+        <div class="card kpi-card">
+          <p class="kpi-title">Evaluaciones pendientes</p>
+          <p class="kpi-value kpi-orange">8</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="section-title">Gráfico de Avances</h2>
+        <div class="chart-placeholder">[Aquí irá un gráfico dinámico]</div>
+      </section>
+    </section>
+  </main>
+
+  <script src="../../js/dashboard.js"></script>
+</body>
+</html>

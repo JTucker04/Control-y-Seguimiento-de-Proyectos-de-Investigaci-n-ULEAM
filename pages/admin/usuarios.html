@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Usuarios - Admin</title>
+  <link rel="stylesheet" href="../../css/styles.css">
+</head>
+
+<!-- Encabezado institucional -->
+  <header class="site-header compact">
+    <div class="header-left">
+      <img src="../../img/uleam_logo.png" alt="Logotipo ULEAM" class="logo">
+    </div>
+    <div class="header-right">
+      <nav class="top-nav small">
+        <span>Español - Internacional</span>
+        <hr class="separator">
+        <a href="login.html" class="link">Salir</a>
+      </nav>
+    </div>
+  </header>
+
+
+<body>
+  <main class="container">
+    <h1 class="page-title">Gestión de Usuarios</h1>
+
+    <section class="card">
+      <h2 class="section-title">Listado de usuarios</h2>
+      <div class="project-table-card">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Rol</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Juan Pérez</td>
+              <td>e123456@uleam.edu.ec</td>
+              <td>Investigador</td>
+              <td><span class="status status-running">Activo</span></td>
+              <td>
+                <button class="btn btn-light">Editar</button>
+                <button class="btn btn-dark">Desactivar</button>
+              </td>
+            </tr>
+            <!-- Más filas dinámicas -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

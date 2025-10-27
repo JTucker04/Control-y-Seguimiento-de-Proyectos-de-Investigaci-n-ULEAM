@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Acceso - ULEAM | Seguimiento de Proyectos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script defer src="../js/validaciones.js"></script>
+</head>
+<body class="bg-soft">
+    
+  <!-- Encabezado institucional -->
+  <header class="site-header compact">
+    <div class="header-left">
+      <img src="../img/uleam_logo.png" alt="Logotipo ULEAM" class="logo">
+    </div>
+    <div class="header-right">
+      <nav class="top-nav small">
+        <span>Español - Internacional</span>
+        <hr class="separator">
+        <a href="login.html" class="link">Acceder</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="container narrow">
+    <section class="login-card card">
+      <h1 class="visually-hidden">Seguimiento de Proyectos ULEAM</h1>
+
+      <!-- Mensaje de sesión expirada -->
+      <div id="msgSesion" class="alert alert-danger" role="alert" aria-live="polite">
+        Su sesión ha excedido el tiempo límite. Por favor, acceda de nuevo.
+      </div>
+
+      <!-- Formulario de acceso -->
+      <form id="loginForm" class="form" novalidate>
+        <div class="form-group">
+          <label for="email">Correo institucional</label>
+          <input type="email" id="email" name="email" placeholder="e1234567890@live.uleam.edu.ec"
+                 autocomplete="email" data-required data-minlen="5">
+          <small class="error-msg" data-error-for="email"></small>
+        </div>
+
+        <div class="form-group">
+          <label for="clave">Contraseña</label>
+          <input type="password" id="clave" name="clave" placeholder="••••••••"
+                 autocomplete="current-password" data-required data-minlen="6">
+          <small class="error-msg" data-error-for="clave"></small>
+        </div>
+
+        <div class="form-actions column">
+          <button type="submit" class="btn btn-dark">Acceder</button>
+          <a href="forgot_password.html" class="link center">¿Olvidó su contraseña?</a>
+        </div>
+      </form>
+
+  </main>
+
+  <footer class="site-footer compact">
+    © ULEAM —  Unidad de Investigación
+  </footer>
+
+  <script>
+    // Mostrar/ocultar mensaje de sesión expirada según query ?timeout=1
+    const params = new URLSearchParams(window.location.search);
+    const showTimeout = params.get('timeout') === '1';
+    const msg = document.getElementById('msgSesion');
+    if (!showTimeout) msg.style.display = 'none';
+
+    // Validación con tu módulo
+    ULEAMValidate.attachValidation('#formLogin');
+
+    // Navegación simulada
+    document.getElementById('formLogin').addEventListener('submit', e => {
+      e.preventDefault();
+      const valido = !document.querySelector('[aria-invalid="true"]');
+      if (valido) {
+        window.location.href = 'dashboard.html';
+      }
+    });
+
+  </script>
+</body>
+</html>
