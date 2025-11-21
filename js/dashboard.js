@@ -31,9 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
         ]
     };
 
-    // Función global para cargar el contenido (necesario para el botón "Ver")
-    function loadContent(url, clickedLink, allLinks) {
-        // La URL debe subir del nivel /js/ a la carpeta raíz para acceder a /pages/
+    // FUNCIÓN CENTRAL PARA CARGAR EL CONTENIDO DINÁMICO
+    // Hacemos esta función global (variable de función) para que sea accesible desde initContentScripts
+    window.loadContent = function(url, clickedLink, allLinks) {
+        // Asume que la URL viene como "rol/pagina.html"
         const absoluteUrl = "../pages/" + url; 
         
         fetch(absoluteUrl, { cache: "no-store" })
@@ -41,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(html => {
                 content.innerHTML = html;
                 
-                // Resaltado activo (si se ha clickeado un link del sidebar)
+                // Resaltado activo (solo si se ha clickeado un link del sidebar)
                 if (clickedLink) {
                     allLinks.forEach(l => l.classList.remove("active"));
                     clickedLink.classList.add("active");
@@ -64,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         menu.forEach((item, index) => {
             // Asignar 'active' al primer elemento del menú
             const activeClass = index === 0 ? ' active' : '';
+            // Usamos el item.href completo (rol/pagina.html) para loadContent
             menuHTML += `<a href="${item.href}" class="nav-item${activeClass}">${item.name}</a>`;
         });
         sidebar.innerHTML = menuHTML;
@@ -74,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link.addEventListener("click", function (e) {
                 e.preventDefault();
                 const url = this.getAttribute("href");
+                // La URL se pasa como rol/pagina.html
                 loadContent(url, this, links);
             });
         });
@@ -105,8 +108,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Validación de Presupuesto (debe ser un número positivo)
         const presupuesto = parseFloat(form.elements.presupuesto.value);
         if (isNaN(presupuesto) || presupuesto <= 0) {
-             form.elements.presupuesto.style.borderColor = "var(--uleam-red)";
-             isValid = false;
+              form.elements.presupuesto.style.borderColor = "var(--uleam-red)";
+              isValid = false;
         }
 
         return isValid;
@@ -173,23 +176,40 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Lógica para inicializar gráficos (Admin)
         if (url.includes("admin/indicadores.html")) {
-             // Lógica del Chart.js (código omitido aquí por brevedad, pero debe ir completo)
-             // Ejemplo:
-             // if (document.getElementById("chartAvances")) { new Chart(...) }
+            // Lógica del Chart.js completa para inicializar el gráfico
+            const ctx = document.getElementById("chartAvances");
+            if (ctx) {
+                new Chart(ctx, {
+                    type: "bar",
+                    data: {
+                        labels: ["Enero", "Febrero", "Marzo", "Abril"],
+                        datasets: [{
+                            label: "Avances (%)",
+                            data: [65, 59, 80, 81],
+                            backgroundColor: "#C21F2B" 
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: { legend: { display: false } },
+                        scales: { y: { beginAtZero: true, max: 100 } }
+                    }
+                });
+            }
         }
 
         // Lógica para el botón 'Ver' (Detalles del Proyecto)
         if (url.includes("proyectos.html") || url.includes("mis_proyectos.html")) {
             const verButtons = document.querySelectorAll('.btn-ver-proyecto');
-            const links = sidebar.querySelectorAll(".nav-item"); // Necesario para el resaltado
 
             verButtons.forEach(button => {
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
                     const projectId = this.getAttribute('data-project-id'); 
                     
-                    // Cargar el fragmento detalles_proyecto.html sin cambiar el item activo del sidebar
-                    loadContent(`${userRole}/detalles_proyecto.html?id=${projectId}`, null, links);
+                    // Cargar el fragmento detalles_proyecto.html, usando el rol actual
+                    // El segundo parámetro es null para no resaltar un elemento del sidebar
+                    loadContent(`${userRole}/detalles_proyecto.html?id=${projectId}`, null, null); 
                 });
             });
         }
@@ -199,10 +219,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const backButton = document.getElementById("backButton");
             if (backButton) {
                 backButton.addEventListener('click', function() {
-                    // Simular clic en el primer elemento del sidebar (Proyectos/Mis Proyectos) para volver a la lista
-                    const firstLink = sidebar.querySelector(".nav-item.active");
-                    if (firstLink) {
-                         loadContent(firstLink.getAttribute("href"), firstLink, sidebar.querySelectorAll(".nav-item"));
+                    // Simular clic en el elemento activo del sidebar (que es la lista de proyectos)
+                    const activeLink = sidebar.querySelector(".nav-item.active");
+                    if (activeLink) {
+                        loadContent(activeLink.getAttribute("href"), activeLink, sidebar.querySelectorAll(".nav-item"));
                     }
                 });
             }
