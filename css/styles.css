@@ -4,7 +4,7 @@
 :root {
   --uleam-red: #d70521;
   --uleam-dark: #2B2B2B;
-  --uleam-gray: #6E6E6E;
+  --uleam-gray: ##8cd7ff;
   --bg-soft: #F5F6F7;
   --border: #E0E0E0;
   --white: #FFFFFF;
@@ -300,4 +300,5 @@ input:focus {
     display: block; width: 100%;
   }
 }
+
 
