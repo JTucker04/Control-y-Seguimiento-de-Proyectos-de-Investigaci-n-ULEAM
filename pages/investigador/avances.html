@@ -1,0 +1,29 @@
+<h2 class="page-title">Registrar Avance del Proyecto</h2>
+<div class="card form-card">
+    <form id="formRegistrarAvance" class="form">
+        <div class="form-group">
+            <label for="proyectoId">Seleccionar Proyecto</label>
+            <select id="proyectoId" name="proyectoId" required>
+                <option value="">Seleccione un proyecto...</option>
+                <option value="INV-001">INV-001: Modelo de Innovación Educativa</option>
+                <option value="VIN-045">VIN-045: Alfabetización Digital</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="porcentajeAvance">% de Avance Reportado (0 - 100)</label>
+            <input type="number" id="porcentajeAvance" name="porcentajeAvance" min="0" max="100" step="1" required>
+        </div>
+        <div class="form-group">
+            <label for="descripcionHito">Descripción del Hito Cumplido</label>
+            <textarea id="descripcionHito" name="descripcionHito" rows="3" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="documentos">Adjuntar Documentos de Soporte</label>
+            <input type="file" id="documentos" name="documentos">
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn btn-red">Enviar Reporte de Avance</button>
+        </div>
+    </form>
+</div>
